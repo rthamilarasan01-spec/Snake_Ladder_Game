@@ -535,7 +535,7 @@ ts.addEventListener('click', async ()=> {
     game1 = new snakeLadder('/static/images/player2.png', '.second','dice_value2');
     if (playerList == 3){
         game2 = new snakeLadder('/static/images/player3.png','.third','dice_value3');
-        document.querySelector('./static/images/player.three').style.visibility = 'visible';
+        document.querySelector('.player.three').style.visibility = 'visible';
     }
     if (playerList == 4){
         game2 = new snakeLadder('/static/images/player3.png','.third','dice_value3');
