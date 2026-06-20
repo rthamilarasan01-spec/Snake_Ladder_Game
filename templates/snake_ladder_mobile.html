@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Ladder Game</title>
+    <script src="/static/js/gameScript_Mobile.js" defer></script>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+        body{
+            background: url("/static/images/wood.png");
+            background-size: 100vw 600px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .panel{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 100vw;
+            height: auto;
+            overflow: scroll;
+            align-items: center;
+            padding-top: 5px;
+        }
+        .container{
+            border: 10px solid rgb(121, 34, 34);
+            border-radius: 20px;
+            border-style: groove;
+            padding: 5px;
+            width: auto;
+            height: 100px;
+            background-color: bisque;
+            text-align: center;
+            display: flex;
+            gap: 10px;
+            justify-content: space-around;
+        }
+        #roll{
+            color: white;
+            background-color: blue;
+            padding: 5px;
+            border-radius: 7px;
+            border: none;
+            font-weight: 600;
+            font-style: italic;
+            cursor: pointer;
+            
+        }
+        #roll:active{
+            background-color: yellow;
+            color: black;
+        }
+        .bot{
+            width: 50%;
+            height: 25px;
+            color: white;
+            background-color: blue;
+            padding: 10px;
+            border-radius: 7px;
+            border: none;
+            font-weight: 600;
+            font-style: italic;
+            font-size: 7px;
+            text-align: center;
+            margin-left: 5px;
+            margin-top: 5px;
+        }
+        #dice_value{
+            color: blueviolet;
+            font-style: oblique;
+        }
+        .board{
+            width: 98vw;
+            height: 470px;
+            padding: 0;
+
+        }
+        .board>img{
+            width: 100%;
+            height: 100%;
+        }
+        .player{
+            border: 1px solid red;
+            border-radius: 20px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
+        .players{
+            background-color: bisque;
+            border: 7px solid rgb(121, 34, 34);
+            border-radius: 20px;
+            border-style: groove;
+            display: flex;
+            gap: 10px;
+        }
+        .left{
+            height: 65px;
+            width: 300px;
+            margin-top: 0;
+            margin-left: 5px;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            flex-direction: row;
+            align-items: center;
+        }
+        .bottom{
+            height: 65px;
+            width: 250px;
+            padding-left: 7px;
+            padding-right: 7px;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .restart{
+            width: 150px;
+            padding: 10px;
+            top: 530px;
+            left: 700px;
+            background-color: bisque;
+            border-radius: 8px;
+            font-size: medium;
+        }
+
+        .bottom>img{
+            width: 30px;
+        }
+        .left>img{
+            width: 30px;
+        }
+        .box{
+            display: flex;
+           
+        }
+
+    select {
+    width: 160px;
+    padding: 10px 12px;
+    font-size: 16px;
+    font-weight: 500;
+
+    border: 2px solid #333;
+    border-radius: 8px;
+
+    background: linear-gradient(135deg, #fff3d6, #ffe0b2);
+    color: #222;
+
+    outline: none;
+    cursor: pointer;
+
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+
+    transition: all 0.3s ease;
+}
+select>option{
+    background-color: bisque;
+}
+
+.menu-button {
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+/* dropdown aligned to button baseline */
+.dropdown {
+    display: none;
+    position: absolute;
+
+    bottom: 30%;
+    left: 0%;
+
+    margin-top: 5px;  /* small gap */
+
+    width: auto;
+    padding: 20px;
+
+    background: bisque;
+    border: 2px groove #333;
+    border-radius: 10px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* grid layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* images */
+.item {
+    width: 50px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.item:hover {
+    transform: scale(1.1);
+}
+
+.bottom-panel{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="panel">
+    <div class="players left">
+        <p style="color: blueviolet;" >WINNERS</p>
+    </div>
+    
+    <div class="board">
+            <img src="/static/images/game_board_mobile.jpg" alt="">
+    </div>
+    <div class="container">
+        <div class="player one">
+            <div class="first">
+                <h4 style="font-style: italic; color: blueviolet;">You</h4>
+                <button id="roll">Roll Dice</button>
+            </div>
+            <h1 id="dice_value1"><img src="/static/images/1f3b2.gif" alt="" width="30px"></h1>
+        </div>
+    <div class="player two">
+            <div class="box second">
+                <div class="bot bone">BOT 1</div>
+            </div>
+        <h1 id="dice_value2"><img src="1f3b2.gif" alt="" width="30px"></h1>
+    </div>
+    <div class="player three" style="visibility: hidden;">
+            <div class="box third">
+                <div class="bot btwo">BOT 2</div>
+            </div>
+        <h1 id="dice_value3"><img src="/static/images/1f3b2.gif" alt="" width="30px"></h1>
+    </div>
+    <div class="player four" style="visibility: hidden;">
+            <div class="box fourth">
+                <div class="bot bthree">BOT 3</div>
+            </div>
+        <h1 id="dice_value4"><img src="/static/images/1f3b2.gif" alt="" width="30px"></h1>
+    </div>
+    </div>
+
+    <div class="bottom-panel">
+        <div class="players bottom"></div>
+        <button class="restart" onclick="reStart()">Restart Game</button>
+    </div>
+
+    </div>
+</body>
+  
+</html>
