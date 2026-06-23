@@ -623,10 +623,9 @@ document.getElementById('roll').addEventListener('click', async ()=> {
         document.querySelector('.player.one').style.backgroundColor = '';
 
         if (game.endGame){
-        await end('You Won ! 🎉');
+        end('You Won ! 🎉');
         win = document.createElement('audio');
         win.src = '/static/audio/win.mp3';
-        document.body.appendChild(win);
         win.play();
         return;
         }
@@ -675,16 +674,15 @@ document.getElementById('roll').addEventListener('click', async ()=> {
                 (playerList < 3 || game2.endGame) && 
                 (playerList < 4 || game3.endGame))
                 {
-                await end('You Loose 😞');
+                end('You Loose 😞');
                 loose = document.createElement('audio');
                 loose.src = '/static/audio/loose.mp3';
-                document.body.appendChild(loose);
                 loose.play();
             }
 
 });
 
-async function end(gameResult){
+function end(gameResult){
                 let gameOver1 = document.createElement('h1');
                 gameOver1.append(gameResult);
                 gameOver1.style.background = 'linear-gradient(135deg, #fff3d6, #ffe0b2)';
@@ -698,7 +696,6 @@ async function end(gameResult){
                 document.body.append(gameOver1);
                 document.getElementById('roll').style.display = 'none';
                 document.getElementById('music').remove();
-                document.getElementById('ladder').remove();
         }
 
 
