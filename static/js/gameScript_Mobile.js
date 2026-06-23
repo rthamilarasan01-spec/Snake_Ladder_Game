@@ -201,7 +201,7 @@ class snakeLadder{
                     });
                 } 
                 else if (diceResult == 3){
-                    if (this.checkLast(131)){
+                    if (this.checkLast(130)){
                     for (let i=0; i<3; i++){
                         if ([500,408,316,224,132].includes(this.marginPlusV) && this.marginPlusH < 370){
         
@@ -234,7 +234,7 @@ class snakeLadder{
 
                 }
                 else if (diceResult == 4){
-                    if (this.checkLast(172)){
+                    if (this.checkLast(170)){
                     for (let i=0; i<4; i++){
                         if ([500,408,316,224,132].includes(this.marginPlusV) && this.marginPlusH < 370){
         
@@ -266,7 +266,7 @@ class snakeLadder{
                 }
                 }
                 else if (diceResult == 5){
-                    if (this.checkLast(212)){
+                    if (this.checkLast(210)){
                     for (let i=0; i<5; i++){
                         if ([500,408,316,224,132].includes(this.marginPlusV) && this.marginPlusH < 370){
         
@@ -298,7 +298,7 @@ class snakeLadder{
                 }
                 }
                 else if (diceResult == 6){
-                    if (this.checkLast(212)){
+                    if (this.checkLast(210)){
                     for (let i=0; i<6; i++){
                         if ([500,408,316,224,132].includes(this.marginPlusV) && this.marginPlusH < 370){
         

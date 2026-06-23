@@ -24,6 +24,7 @@
             border-style: groove;
             padding: 10px;
             height: auto;
+            width: fit-content;
             background-color: bisque;
             text-align: center;
             display: flex;
@@ -207,27 +208,6 @@ select>option{
     transform: scale(1.1);
 }
 
-/* @media (max-width: 768px) and (orientation: portrait) {
-
-
-    body{
-        height: 100vh;
-    }
-    .container {
-        position: relative;
-        margin: 20px auto;
-        margin-left: 200px;
-        margin-top: 300%;
-
-        width: 100%;
-        max-width: 600px;
-        height: 300px;
-        flex-direction: row;
-
-        left: 0;
-    }
-
-} */
     </style>
 </head>
 <body>
@@ -242,7 +222,7 @@ select>option{
     <div class="container">
         <div class="player one">
             <div class="first">
-                <h3 style="font-style: italic; color: blueviolet;">Player 1</h3>
+                <h3 style="font-style: italic; color: blueviolet;">You</h3>
                 <button id="roll">Roll Dice</button>
             </div>
             <h1 id="dice_value1"><img src="/static/images/1f3b2.gif" alt="" width="30px"></h1>
