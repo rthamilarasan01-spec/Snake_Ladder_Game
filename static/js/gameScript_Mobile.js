@@ -91,6 +91,7 @@ class snakeLadder{
                 if (this.ladderStartH[i] == this.marginPlusH && this.ladderStartV[i] == this.marginPlusV){
                     let ladder = document.createElement('audio');
                     ladder.src = '/static/audio/ladder.mp3';
+                    ladder.id = 'ladder';
                     ladder.play();
                     document.getElementById('music').pause();
                     this.marginPlusH = this.ladderEndH[i];
@@ -621,7 +622,6 @@ document.getElementById('roll').addEventListener('click', async ()=> {
 
         if (game.endGame){
         end('You Won ! 🎉');
-        document.getElementById('music').remove();
         win = document.createElement('audio');
         win.src = '/static/audio/win.mp3';
         document.body.appendChild(win);
@@ -674,7 +674,6 @@ document.getElementById('roll').addEventListener('click', async ()=> {
                 (playerList < 4 || game3.endGame))
                 {
                 end('You Loose 😞');
-                document.getElementById('music').remove();
                 loose = document.createElement('audio');
                 loose.src = '/static/audio/loose.mp3';
                 document.body.appendChild(loose);
@@ -696,6 +695,8 @@ function end(gameResult){
                 gameOver1.style.zIndex = '9999';
                 document.body.append(gameOver1);
                 document.getElementById('roll').style.display = 'none';
+                document.getElementById('music').remove();
+                document.getElementById('ladder').remove();
         }
 
 
