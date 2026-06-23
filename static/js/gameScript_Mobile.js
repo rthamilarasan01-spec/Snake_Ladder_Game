@@ -89,7 +89,10 @@ class snakeLadder{
         async checkLadder(){
             for (let i=0; i<this.ladderStartH.length; i++){
                 if (this.ladderStartH[i] == this.marginPlusH && this.ladderStartV[i] == this.marginPlusV){
-                    document.getElementById('ladder').play();
+                    let ladder = document.createElement('audio');
+                    ladder.src = '/static/audio/ladder.mp3';
+                    ladder.id = 'ladder';
+                    ladder.play();
                     document.getElementById('music').pause();
                     this.marginPlusH = this.ladderEndH[i];
                     this.marginPlusV = this.ladderEndV[i];
@@ -114,7 +117,10 @@ class snakeLadder{
         async checkSnake(){
             for (let i=0; i<this.snakeHeadH.length; i++){
                 if (this.snakeHeadH[i] == this.marginPlusH && this.snakeHeadV[i] == this.marginPlusV){
-                    document.getElementById('snake').play();
+                    let snake = document.createElement('audio');
+                    snake.src = '/static/audio/snake.mp3';
+                    snake.id = 'snake';
+                    snake.play();
                     document.getElementById('music').pause();
                     this.marginPlusH = this.snakeTailH[i];
                     this.marginPlusV = this.snakeTailV[i];
@@ -523,16 +529,6 @@ ts.addEventListener('click', async ()=> {
     document.body.appendChild(music);
     music.play();
 
-    let ladder = document.createElement('audio');
-    ladder.src = '/static/audio/ladder.mp3';
-    ladder.id = 'ladder';
-    document.body.appendChild(ladder);
-
-    let snake = document.createElement('audio');
-    snake.src = '/static/audio/snake.mp3';
-    snake.id = 'snake';
-    document.body.appendChild(snake);
-
     let playerdp = document.querySelector('.playerdp');
     let select = document.querySelector('select');
     playerList = Number(select.value);
@@ -627,7 +623,7 @@ document.getElementById('roll').addEventListener('click', async ()=> {
         document.querySelector('.player.one').style.backgroundColor = '';
 
         if (game.endGame){
-        end('You Won ! 🎉');
+        await end('You Won ! 🎉');
         win = document.createElement('audio');
         win.src = '/static/audio/win.mp3';
         document.body.appendChild(win);
@@ -679,7 +675,7 @@ document.getElementById('roll').addEventListener('click', async ()=> {
                 (playerList < 3 || game2.endGame) && 
                 (playerList < 4 || game3.endGame))
                 {
-                end('You Loose 😞');
+                await end('You Loose 😞');
                 loose = document.createElement('audio');
                 loose.src = '/static/audio/loose.mp3';
                 document.body.appendChild(loose);
@@ -688,7 +684,7 @@ document.getElementById('roll').addEventListener('click', async ()=> {
 
 });
 
-function end(gameResult){
+async function end(gameResult){
                 let gameOver1 = document.createElement('h1');
                 gameOver1.append(gameResult);
                 gameOver1.style.background = 'linear-gradient(135deg, #fff3d6, #ffe0b2)';
