@@ -93,10 +93,7 @@ class snakeLadder{
         async checkLadder(){
             for (let i=0; i<this.ladderStartH.length; i++){
                 if (this.ladderStartH[i] == this.marginPlusH && this.ladderStartV[i] == this.marginPlusV){
-                    let ladder = document.createElement('audio');
-                    ladder.src = '/static/audio/ladder.mp3';
-                    ladder.id = 'ladder';
-                    ladder.play();
+                    document.getElementById('ladder').play();
                     document.getElementById('music').pause();
                     this.marginPlusH = this.ladderEndH[i];
                     this.marginPlusV = this.ladderEndV[i];
@@ -121,9 +118,7 @@ class snakeLadder{
          async checkSnake(){
             for (let i=0; i<this.snakeHeadH.length; i++){
                 if (this.snakeHeadH[i] == this.marginPlusH && this.snakeHeadV[i] == this.marginPlusV){
-                    let snake = document.createElement('audio');
-                    snake.src = '/static/audio/snake.mp3';
-                    snake.play();
+                    document.getElementById('snake').play();
                     document.getElementById('music').pause();
                     this.marginPlusH = this.snakeTailH[i];
                     this.marginPlusV = this.snakeTailV[i];
@@ -529,6 +524,17 @@ ts.addEventListener('click', async ()=> {
     music.loop = 'true';
     document.body.appendChild(music);
     music.play();
+
+    let ladder = document.createElement('audio');
+    ladder.src = '/static/audio/ladder.mp3';
+    ladder.id = 'ladder';
+    document.body.appendChild(ladder);
+
+    let snake = document.createElement('audio');
+    snake.src = '/static/audio/snake.mp3';
+    snake.id = 'snake';
+    document.body.appendChild(snake);
+
     let playerdp = document.querySelector('.playerdp');
     let select = document.querySelector('select');
     playerList = Number(select.value);
