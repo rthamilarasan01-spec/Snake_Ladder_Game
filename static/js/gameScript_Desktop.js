@@ -53,9 +53,6 @@ class snakeLadder{
             this.left1.append(this.addLeft());
             this.playerCoin.remove();
             document.getElementById(this.dice_value).innerHTML = `<p style="color:green; font-size:22px;">WIN</p>`
-            // this.gameStart = false;
-            // let w1 = document.getElementById('roll');
-            // w1.remove();
             return true;
         }
 
@@ -490,10 +487,15 @@ function tossButton(){
     btn.style.position = 'absolute';
     btn.style.background = 'linear-gradient(135deg, #fff3d6, #ffe0b2';
     btn.style.top = '350px';
-    btn.style.left = '310px';
-    btn.style.width = '350px';
+    btn.style.left = '450px';
+    btn.style.width = '100px';
+    btn.style.height = '100px';
+    btn.style.borderRadius = '50%';
+    btn.style.border = '10px solid rgb(121, 34, 34)';
+    btn.style.borderStyle = 'groove';
+    btn.style.fontWeight = '600';
+    btn.style.fontSize = '30px';
     btn.style.padding = '10px';
-    btn.borderRadius = '8px';
     btn.style.zIndex = '1';
     document.body.appendChild(btn);
 }
