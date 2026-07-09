@@ -732,7 +732,15 @@ sound.addEventListener('click', ()=> {
     playSound ? mute() : volume();
 })
 
+document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+});
 
-        
+document.querySelectorAll("img").forEach(img => {
+    img.draggable = false;
+});
 
+document.addEventListener("selectstart", function(e) {
+    e.preventDefault();
+});
          
