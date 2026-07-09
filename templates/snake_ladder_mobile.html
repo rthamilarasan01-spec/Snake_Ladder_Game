@@ -221,13 +221,25 @@ select>option{
     align-items: center;
     margin-top: 5px;
 }
+.sound{
+    width: 40px;
+    border-radius: 50%;
+}
+.sound>img{
+    width: 100%;
+    border-radius: 50%;
+    
+}
 
     </style>
 </head>
 <body>
     <div class="panel">
-    <div class="players left">
+    <div style="display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: center;">
+        <div class="players left">
         <p style="color: blueviolet;" >WINNERS</p>
+    </div>
+    <div class="sound"><img src="/static/images/volume.png" alt="sound"></div>
     </div>
     
     <div class="board">

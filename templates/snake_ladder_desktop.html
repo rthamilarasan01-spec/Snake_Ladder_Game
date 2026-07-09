@@ -208,6 +208,18 @@ select>option{
 .item:hover {
     transform: scale(1.1);
 }
+.sound{
+    position: absolute;
+    width: 40px;
+    top: 530px;
+    left: 1000px;
+    border-radius: 50%;
+}
+.sound>img{
+    width: 100%;
+    border-radius: 50%;
+    
+}
 
     </style>
 </head>
@@ -217,6 +229,7 @@ select>option{
     </div>
     <div class="players bottom"></div>
     <button class="restart" onclick="reStart()">Restart Game</button>
+    <div class="sound"><img src="/static/images/volume.png" alt="sound"></div>
     <div class="board">
             <img src="/static/images/game_board_desktop.png" alt="">
         </div>

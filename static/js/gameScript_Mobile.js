@@ -89,9 +89,7 @@ class snakeLadder{
         async checkLadder(){
             for (let i=0; i<this.ladderStartH.length; i++){
                 if (this.ladderStartH[i] == this.marginPlusH && this.ladderStartV[i] == this.marginPlusV){
-                    let ladder = document.createElement('audio');
-                    ladder.src = '/static/audio/ladder.mp3';
-                    ladder.id = 'ladder';
+                    
                     ladder.play();
                     document.getElementById('music').pause();
                     this.marginPlusH = this.ladderEndH[i];
@@ -117,9 +115,7 @@ class snakeLadder{
         async checkSnake(){
             for (let i=0; i<this.snakeHeadH.length; i++){
                 if (this.snakeHeadH[i] == this.marginPlusH && this.snakeHeadV[i] == this.marginPlusV){
-                    let snake = document.createElement('audio');
-                    snake.src = '/static/audio/snake.mp3';
-                    snake.id = 'snake';
+                    
                     snake.play();
                     document.getElementById('music').pause();
                     this.marginPlusH = this.snakeTailH[i];
@@ -529,6 +525,18 @@ ts.addEventListener('click', async ()=> {
     document.body.appendChild(music);
     music.play();
 
+    let ladder = document.createElement('audio');
+    ladder.src = '/static/audio/ladder.mp3';
+    ladder.id = 'ladder';
+    document.body.appendChild(ladder);
+
+    let snake = document.createElement('audio');
+    snake.src = '/static/audio/snake.mp3';
+    snake.id = 'snake';
+    document.body.appendChild(snake);
+
+    sound.style.visibility = 'visible';
+
     let playerdp = document.querySelector('.playerdp');
     let select = document.querySelector('select');
     playerList = Number(select.value);
@@ -698,7 +706,25 @@ function end(gameResult){
                 document.getElementById('music').remove();
         }
 
+let sound = document.querySelector('.sound');
+sound.style.visibility = 'hidden';
+let playSound = true;
+function volume(){
+    sound.innerHTML = '<img src="/static/images/volume.png" alt="sound">';
+    document.getElementById('music').muted = false;
+    document.getElementById('ladder').muted = false;
+    document.getElementById('snake').muted = false;
+    playSound = true;
+}
+function mute(){
+    sound.innerHTML = '<img src="/static/images/mute.png" alt="sound">';
+    document.getElementById('music').muted = true;
+    document.getElementById('ladder').muted = true;
+    document.getElementById('snake').muted = true;
+    playSound = false;
+}
 
-        
 
-         
+sound.addEventListener('click', ()=> {
+    playSound ? mute() : volume();
+})

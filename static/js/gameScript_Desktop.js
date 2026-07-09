@@ -537,6 +537,8 @@ ts.addEventListener('click', async ()=> {
     snake.id = 'snake';
     document.body.appendChild(snake);
 
+    sound.style.visibility = 'visible';
+
     let playerdp = document.querySelector('.playerdp');
     let select = document.querySelector('select');
     playerList = Number(select.value);
@@ -706,6 +708,29 @@ function end(gameResult){
                 document.getElementById('music').remove();
                 document.getElementById('ladder').remove();
         }
+
+let sound = document.querySelector('.sound');
+sound.style.visibility = 'hidden';
+let playSound = true;
+function volume(){
+    sound.innerHTML = '<img src="/static/images/volume.png" alt="sound">';
+    document.getElementById('music').muted = false;
+    document.getElementById('ladder').muted = false;
+    document.getElementById('snake').muted = false;
+    playSound = true;
+}
+function mute(){
+    sound.innerHTML = '<img src="/static/images/mute.png" alt="sound">';
+    document.getElementById('music').muted = true;
+    document.getElementById('ladder').muted = true;
+    document.getElementById('snake').muted = true;
+    playSound = false;
+}
+
+
+sound.addEventListener('click', ()=> {
+    playSound ? mute() : volume();
+})
 
 
         
