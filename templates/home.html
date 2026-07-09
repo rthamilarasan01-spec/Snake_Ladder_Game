@@ -10,6 +10,10 @@
             padding: 0;
         }
         body{
+            user-select: none;
+            -webkit-user-select: none; /* Chrome, Safari */
+            -moz-user-select: none;    /* Firefox */
+            -ms-user-select: none;     /* Older Edge */
             max-width: 100vw;
             height: 100vh;
             display: flex;
@@ -52,6 +56,11 @@
             transform: scale(1.1);
         }
 
+        img {
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
         @media screen and (max-width: 768px) {
             .container{
                 width: 90vw;
@@ -66,5 +75,10 @@
         <a href="/desktop_game" style="background: url('/static/images/desktop.png'); background-size: 100% 100%; width: 100px;">Desktop</a>
         <a href="/mobile_game" style="background: url('/static/images/mobile.png'); background-size: 100% 100%; width: 70px;">Mobile</a>
     </div>
+    <script>
+        document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+});
+    </script>
 </body>
 </html>
