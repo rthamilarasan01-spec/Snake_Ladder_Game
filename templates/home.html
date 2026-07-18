@@ -48,12 +48,16 @@
             color: rgb(245, 245, 21);
             font-weight: 600;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             transition: 0.5s ease;
         }
         a:hover{
             transform: scale(1.1);
+        }
+        #facebook-link>img{
+            width: 40px;
         }
 
         img {
@@ -74,6 +78,7 @@
         <h1>Select Your Device💻</h1>
         <a href="/desktop_game" style="background: url('/static/images/desktop.png'); background-size: 100% 100%; width: 100px;">Desktop</a>
         <a href="/mobile_game" style="background: url('/static/images/mobile.png'); background-size: 100% 100%; width: 70px;">Mobile</a>
+        <a href="https://www.facebook.com/share/14hr3AdPjD2/" id="facebook-link" target="_blank"><img src="/static/images/facebook.png" alt=""><p>Follow</p></a>
     </div>
     <script>
         document.addEventListener("contextmenu", function (e) {
