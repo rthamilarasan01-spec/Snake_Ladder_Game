@@ -713,14 +713,14 @@ let sound = document.querySelector('.sound');
 sound.style.visibility = 'hidden';
 let playSound = true;
 function volume(){
-    sound.innerHTML = '<img src="/static/images/volume.png" alt="sound">';
+    sound.innerHTML = '<p style="font-size: 34px; ">🔊</p>';
     document.getElementById('music').muted = false;
     document.getElementById('ladder').muted = false;
     document.getElementById('snake').muted = false;
     playSound = true;
 }
 function mute(){
-    sound.innerHTML = '<img src="/static/images/mute.png" alt="sound">';
+    sound.innerHTML = '<p style="font-size: 34px; ">🔇</p>';
     document.getElementById('music').muted = true;
     document.getElementById('ladder').muted = true;
     document.getElementById('snake').muted = true;
