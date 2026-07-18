@@ -710,14 +710,18 @@ let sound = document.querySelector('.sound');
 sound.style.visibility = 'hidden';
 let playSound = true;
 function volume(){
-    sound.innerHTML = '<p style="font-size: 34px; ">🔊</p>';
+    sound.innerHTML = `<p style="font-size: 34px; background-color: aliceblue; 
+                       border-radius: 50%; width: 45px; height: 45px; padding: 5px; 
+                       display: flex; align-items: center; justify-content: center">🔊</p>`;
     document.getElementById('music').muted = false;
     document.getElementById('ladder').muted = false;
     document.getElementById('snake').muted = false;
     playSound = true;
 }
 function mute(){
-    sound.innerHTML = '<p style="font-size: 34px; ">🔇</p>';
+    sound.innerHTML = `<p style="font-size: 34px; background-color: aliceblue; 
+                       border-radius: 50%; width: 45px; height: 45px; padding: 5px;
+                       display: flex; align-items: center; justify-content: center">🔇</p>`;
     document.getElementById('music').muted = true;
     document.getElementById('ladder').muted = true;
     document.getElementById('snake').muted = true;
