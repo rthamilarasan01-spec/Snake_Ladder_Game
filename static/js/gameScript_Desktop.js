@@ -625,6 +625,7 @@ ts.addEventListener('click', async ()=> {
     document.getElementById('roll').style.display = 'inline-block';
 });
 
+let playSound = true;
 document.getElementById('roll').addEventListener('click', async ()=> {
 
         document.getElementById('roll').style.display = 'none';
@@ -637,7 +638,7 @@ document.getElementById('roll').addEventListener('click', async ()=> {
         win = document.createElement('audio');
         win.src = '/static/audio/win.mp3';
         document.body.appendChild(win);
-        win.play();
+        playSound ? win.play() : win.muted = true;
         return;
         }
 
@@ -688,30 +689,46 @@ document.getElementById('roll').addEventListener('click', async ()=> {
                 loose = document.createElement('audio');
                 loose.src = '/static/audio/loose.mp3';
                 document.body.appendChild(loose);
-                loose.play();
+                playSound ? loose.play() : loose.muted = true;
             }
 
 });
 
 function end(gameResult){
+                let endCard = document.createElement('div');
                 let gameOver1 = document.createElement('h1');
+                let playAgain = document.createElement('button');
+                playAgain.classList.add('player');
+                playAgain.style.backgroundColor = 'blue';
+                playAgain.style.color = 'white';
+                playAgain.innerText = 'Play Again';
+                playAgain.style.padding = '10px';
+                playAgain.style.fontSize = '20px';
+                playAgain.style.fontWeight = '600';
+                playAgain.addEventListener('click', () => {
+                    window.location.reload();
+                })
+                endCard.className = 'end-card';
                 gameOver1.append(gameResult);
                 gameOver1.style.background = 'linear-gradient(135deg, #fff3d6, #ffe0b2)';
                 gameOver1.style.fontSize = '68px';
-                gameOver1.style.position = 'absolute';
-                gameOver1.style.top = '300px';
-                gameOver1.style.left = '450px';
+                endCard.style.position = 'absolute';
+                endCard.style.top = '300px';
+                endCard.style.left = '450px';
+                endCard.style.display = 'flex';
+                endCard.style.flexDirection = 'column';
                 gameOver1.style.color = 'green';
                 gameOver1.style.padding = '10px';
-                document.body.append(gameOver1);
+                document.body.append(endCard);
+                endCard.appendChild(gameOver1);
+                endCard.append(playAgain);
                 document.getElementById('roll').style.display = 'none';
-                document.getElementById('music').remove();
-                document.getElementById('ladder').remove();
+                document.getElementById('music').muted = true;
+                document.getElementById('ladder').muted = true;
         }
 
 let sound = document.querySelector('.sound');
 sound.style.visibility = 'hidden';
-let playSound = true;
 function volume(){
     sound.innerHTML = '<p style="font-size: 34px; ">🔊</p>';
     document.getElementById('music').muted = false;
